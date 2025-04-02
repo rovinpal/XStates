@@ -78,6 +78,10 @@ const State = () => {
         fetchCities();
     }, [selectedState, selectedCountry]);
 
+    const locationString = selectedCity && selectedState && selectedCountry 
+        ? `${selectedCity}, ${selectedState}, ${selectedCountry}` 
+        : "";
+
 
     return (
         <div style={{textAlign: "center", padding: "20px"}}>
@@ -132,21 +136,19 @@ const State = () => {
                     ))}
                 </select>
             </div>
-            {selectedCity && (
+            {locationString && (
                 <div
                     style={{
                         marginTop: "20px",
                         fontSize: "20px",
                         display: "flex",
-                        alignItems: "flex-end",
+                        alignItems: "center",
                         justifyContent: "center",
-                        gap: "10px"
                     }}
                 >
-                    <span style={{ fontWeight: "bold", alignSelf: "flex-end"}}>You selected</span>
-                    <span style={{ fontSize: "24px", fontWeight: "bold", alignSelf: "flex-end"}}>{selectedCity},</span>
-                    <span style={{ color: "gray", alignSelf: "flex-end"}}>{selectedState},</span>
-                    <span style={{ color: "gray", alignSelf: "flex-end"}}>{selectedCountry}</span>
+                    <span style={{ fontWeight: "bold", fontSize: "24px" }}>
+                        You selected: {locationString}
+                    </span>
                 </div>
             )}
         </div>
