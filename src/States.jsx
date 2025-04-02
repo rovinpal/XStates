@@ -147,7 +147,7 @@ const State = () => {
                     }}
                 >
                     <span style={{ fontWeight: "bold", fontSize: "24px" }}>
-                        You selected: {locationString}
+                        You selected {locationString}
                     </span>
                 </div>
             )}
